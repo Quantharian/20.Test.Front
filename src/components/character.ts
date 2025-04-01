@@ -7,7 +7,7 @@ export function createCharacter(
     character: Character,
 ) {
     const template = /*html*/ `
-      <li class="character">
+      <li class="character" aria-label="${character.id}">
         <div class="card character__card">
           <img src="assets/${character.name}.jpg" alt="Nombre y familia del personaje" class="character__picture card-img-top" />
           <div class="card-body">
