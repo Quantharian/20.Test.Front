@@ -3,21 +3,23 @@ import { render } from './base.js';
 export function createHeader(
     selector: string = 'body',
     position: InsertPosition = 'afterbegin',
-): void {
-    const container = document.querySelector(selector);
-    if (container) {
-        const template = `
-            <header>
-                <h1>My Header</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-        `;
-        render(selector, position, template);
-    }
+) {
+    const template = /*html*/ `
+        <header class="header">
+            <div class="header__container">
+                <img src="favicon.png" alt="Logo de la serie" class="header__logo" />
+                <h1 class="header__title">Game of Thrones</h1>
+            </div>
+            <menu>
+              <button class="header__nav-button" type="button" aria-expanded="false" aria-controls="add">Add</button>
+            </menu>
+        </header>  
+        <details class="add">
+            <summary class="header__nav-title">Add</summary>  
+        </details>
+    `;
+
+    const element = render(selector, position, template);
+
+    return element as HTMLElement;
 }
